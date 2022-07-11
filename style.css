@@ -4,6 +4,7 @@ body {
     align-items: center;
     gap: 30px;
     margin: 100px;
+    background-color:  #FECB3E;
 }
 
 .button {
@@ -20,6 +21,13 @@ body {
     font-family: 'Sora', sans-serif;
     font-weight: 800;
     font-size: 60px;
+    border: solid  #5F5FFC;
+    border-radius: 50px;
+    width: 200px;
+    text-align: center;
+    padding: 5px 100px;
+    background-color:  #5F5FFC;
+    color:   white;
 }
 
 #text-output {
