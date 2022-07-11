@@ -13,3 +13,15 @@ body {
     display: flex;
     gap: 80px;
 }
+
+#score-output {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+}
+
+#text-output {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+}
