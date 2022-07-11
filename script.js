@@ -2,17 +2,11 @@ let btnRock = document.getElementById("btn-rock");
 let btnPaper = document.getElementById("btn-paper");
 let btnScissors = document.getElementById("btn-scissors");
 
-btnRock.addEventListener("click", function (e) {
-  console.log(e);
-});
+btnRock.addEventListener("click", playRound("rock", computerPlay));
 
-btnPaper.addEventListener("click", function (e) {
-  console.log(e);
-});
+btnPaper.addEventListener("click", playRound("paper", computerPlay));
 
-btnScissors.addEventListener("click", function (e) {
-  console.log(e);
-});
+btnScissors.addEventListener("click", playRound("scissors", computerPlay));
 
 function computerPlay() {
   let randomNumber = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
