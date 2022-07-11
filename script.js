@@ -1,6 +1,7 @@
 let btnRock = document.getElementById("btn-rock");
 let btnPaper = document.getElementById("btn-paper");
 let btnScissors = document.getElementById("btn-scissors");
+let textOutput = document.getElementById("text-output");
 
 btnRock.addEventListener("click", playRound("rock", computerPlay));
 
@@ -46,32 +47,39 @@ function game() {
         playerInput = promptPlayerInput;
         break;
       }
-      console.log("Wrong input! Try again");
+      textOutput.textContent = "Wrong input! Try again";
+      //console.log("Wrong input! Try again");
     }
     let computerInput = computerPlay();
     let winner = playRound(playerInput, computerInput);
     if (winner == 0) {
-      console.log(`You Win! ${playerInput} beats ${computerInput}`);
+      textOutput.textContent = `You Win! ${playerInput} beats ${computerInput}`;
+      //console.log(`You Win! ${playerInput} beats ${computerInput}`);
       ++playerCount;
       continue;
     } else if (winner == 1) {
-      console.log(`You Lose! ${computerInput} beats ${playerInput}`);
+      textOutput.textContent = `You Lose! ${computerInput} beats ${playerInput}`;
+      //console.log(`You Lose! ${computerInput} beats ${playerInput}`);
       ++computerCount;
       continue;
     } else {
-      console.log(`Draw! ${playerInput} and ${computerInput} are the same`);
+      textOutput.textContent = `Draw! ${playerInput} and ${computerInput} are the same`;
+      //console.log(`Draw! ${playerInput} and ${computerInput} are the same`);
       continue;
     }
   }
   if (playerCount > computerCount) {
-    console.log("You win the game!");
+    textOutput.textContent = "You win the game!";
+    //console.log("You win the game!");
     return;
   }
   if (playerCount < computerCount) {
-    console.log("You lose the game!");
+    textOutput.textContent = "You lose the game!";
+    //console.log("You lose the game!");
     return;
   }
-  console.log("It's a draw!");
+  textOutput.textContent = "It's a draw!";
+  //console.log("It's a draw!");
 }
 
 function inputCorrect(input) {
