@@ -1,3 +1,3 @@
 # rock-paper-scissors-js
 
-This is my first project, coding in JS form scratch. It's a simple Rock, Paper, Scissors game utilizing the console as well as the prompt() function to input and output relevant information and instructions.
+This is my first project, coding in JS form scratch. It's a simple Rock, Paper, Scissors game built in vanilla JS and CSS. This is part of the "The Odin Project" curriculum.
