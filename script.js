@@ -33,7 +33,7 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
   let playerInput = playerSelection.toLowerCase();
   let computerInput = computerSelection.toString().toLowerCase();
-  let winner = findWinner(playerInput, computerInput);
+  let winner = findRoundWinner(playerInput, computerInput);
 
   if (winner === "player") {
     ++playerScore;
@@ -41,11 +41,13 @@ function playRound(playerSelection, computerSelection) {
   } else if (winner === "computer") {
     ++computerScore;
     textOutput.textContent = `You Lose! ${computerInput} beats ${playerInput}`;
-  } else
+  } else {
     textOutput.textContent = `Draw! ${playerInput} and ${computerInput} are the same`;
+  }
+  displayScore();
 }
 
-function findWinner(playerInput, computerInput) {
+function findRoundWinner(playerInput, computerInput) {
   if (playerInput == computerInput) return "draw";
   if (
     (playerInput == "rock" && computerInput == "scissors") ||
@@ -57,6 +59,13 @@ function findWinner(playerInput, computerInput) {
     return "computer";
   }
 }
+
+function displayScore() {
+  document.getElementById(
+    "score-output"
+  ).textContent = `${playerScore} : ${computerScore}`;
+}
+
 /*
 function game() {
   let playerCount = 0;
