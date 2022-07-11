@@ -2,12 +2,20 @@ let btnRock = document.getElementById("btn-rock");
 let btnPaper = document.getElementById("btn-paper");
 let btnScissors = document.getElementById("btn-scissors");
 let textOutput = document.getElementById("text-output");
+let playerScore = 0;
+let computerScore = 0;
 
-btnRock.addEventListener("click", playRound("rock", computerPlay));
+btnRock.addEventListener("click", () => {
+  playRound("rock", computerPlay());
+});
 
-btnPaper.addEventListener("click", playRound("paper", computerPlay));
+btnPaper.addEventListener("click", () => {
+  playRound("paper", computerPlay());
+});
 
-btnScissors.addEventListener("click", playRound("scissors", computerPlay));
+btnScissors.addEventListener("click", () => {
+  playRound("scissors", computerPlay());
+});
 
 function computerPlay() {
   let randomNumber = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
@@ -24,18 +32,32 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
   let playerInput = playerSelection.toLowerCase();
-  let computerInput = computerSelection.toLowerCase();
+  let computerInput = computerSelection.toString().toLowerCase();
+  let winner = findWinner(playerInput, computerInput);
 
-  if (playerInput == computerInput) return 2;
+  if (winner === "player") {
+    ++playerScore;
+    textOutput.textContent = `You Win! ${playerInput} beats ${computerInput}`;
+  } else if (winner === "computer") {
+    ++computerScore;
+    textOutput.textContent = `You Lose! ${computerInput} beats ${playerInput}`;
+  } else
+    textOutput.textContent = `Draw! ${playerInput} and ${computerInput} are the same`;
+}
+
+function findWinner(playerInput, computerInput) {
+  if (playerInput == computerInput) return "draw";
   if (
     (playerInput == "rock" && computerInput == "scissors") ||
     (playerInput == "paper" && computerInput == "rock") ||
     (playerInput == "scissors" && computerInput == "paper")
   ) {
-    return 0;
-  } else return 1;
+    return "player";
+  } else {
+    return "computer";
+  }
 }
-
+/*
 function game() {
   let playerCount = 0;
   let computerCount = 0;
@@ -92,3 +114,4 @@ function inputCorrect(input) {
   }
   return false;
 }
+*/
