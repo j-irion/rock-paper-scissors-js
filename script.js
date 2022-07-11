@@ -64,6 +64,22 @@ function displayScore() {
   document.getElementById(
     "score-output"
   ).textContent = `${playerScore} : ${computerScore}`;
+  displayWinner();
+}
+
+function displayWinner() {
+  if (playerScore >= 5) {
+    textOutput.textContent = "Congrats! You win!";
+    resetScore();
+  } else if (computerScore >= 5) {
+    textOutput.textContent = "Game Over!";
+    resetScore();
+  }
+}
+
+function resetScore() {
+  playerScore = 0;
+  computerScore = 0;
 }
 
 /*
