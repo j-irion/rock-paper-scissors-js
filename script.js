@@ -10,7 +10,6 @@ btnScissors.addEventListener("click", playRound("scissors", computerPlay));
 
 function computerPlay() {
   let randomNumber = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
-  console.log(randomNumber);
 
   switch (randomNumber) {
     case 1:
